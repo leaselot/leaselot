@@ -1,0 +1,7 @@
+# Explicit dependencies
+node_modules/
+
+# Environment variables
+**/.env
+
+
