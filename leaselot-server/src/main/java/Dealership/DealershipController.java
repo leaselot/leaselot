@@ -3,10 +3,9 @@ package Dealership;
 import Dealer.Dealer;
 import Dealer.DealerController;
 import Dealer.DealerType;
+import Security.PasswordUtils;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import de.mkammerer.argon2.Argon2;
-import de.mkammerer.argon2.Argon2Factory;
 import io.javalin.http.Handler;
 import org.bson.types.ObjectId;
 import org.json.JSONObject;
@@ -38,14 +37,11 @@ public class DealershipController {
           return;
         }
 
-        Argon2 argon2 = Argon2Factory.create();
-        char[] passwordArr = password.toCharArray();
         String passwordHash;
         try {
-          passwordHash = argon2.hash(10, 65536, 1, passwordArr);
-          argon2.wipeArray(passwordArr);
+          passwordHash = PasswordUtils.hashPassword();
         } catch (Exception e) {
-          argon2.wipeArray(passwordArr);
+          e.printStackTrace();
           ctx.json(DealershipResponse.HASH_FAILURE.toJSON());
           return;
         }
