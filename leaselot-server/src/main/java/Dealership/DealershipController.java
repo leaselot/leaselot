@@ -39,7 +39,7 @@ public class DealershipController {
 
         String passwordHash;
         try {
-          passwordHash = PasswordUtils.hashPassword();
+          passwordHash = PasswordUtils.hashPassword(password);
         } catch (Exception e) {
           e.printStackTrace();
           ctx.json(DealershipResponse.HASH_FAILURE.toJSON());
