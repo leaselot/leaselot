@@ -19,7 +19,7 @@ public class Dealership {
   }
 
   public String getName() {
-      return this.name;
+    return this.name;
   }
 
   public Dealer getAdmin() {
@@ -37,8 +37,8 @@ public class Dealership {
   }
 
   public Dealership setName(String name) {
-      this.name = name;
-      return this;
+    this.name = name;
+    return this;
   }
 
   public Dealership setAdmin(Dealer admin) {
@@ -55,7 +55,7 @@ public class Dealership {
   public String toString() {
     final StringBuilder sb = new StringBuilder("Dealer {");
     sb.append("id=").append(this.id);
-    sb.append(", name=").append(this.name)
+    sb.append(", name=").append(this.name);
     sb.append(", admin=").append(this.admin);
     sb.append(", employees=").append(this.employees);
     sb.append("}");
