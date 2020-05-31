@@ -7,6 +7,7 @@ import {
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/Dashboard';
+import Enrollment from './components/Enrollment';
 import History from './components/History';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -42,6 +43,11 @@ function App() {
             <Quote />
           )}
         />
+        <Route
+          path="lease-enrollment"
+          render={() => (
+            <Enrollment />
+          )}
         <Route
           path="lease-history"
           render={() => (
