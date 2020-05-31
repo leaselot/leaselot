@@ -48,6 +48,7 @@ function App() {
           render={() => (
             <Enrollment />
           )}
+        />
         <Route
           path="lease-history"
           render={() => (
