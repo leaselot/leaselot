@@ -1,4 +1,5 @@
 import Config.MongoConfig;
+import Dealership.DealershipController;
 import com.mongodb.client.MongoDatabase;
 import io.javalin.Javalin;
 
@@ -11,6 +12,9 @@ public class App {
         MongoConfig.getMongoClient()
             .getDatabase(Objects.requireNonNull(System.getenv("MONGO_DB_NAME")));
 
+    /** ******************** CONTROLLERS *************************** */
+    DealershipController dealershipController = new DealershipController(db);
+
     Javalin app =
         Javalin.create(
                 config -> {
@@ -20,5 +24,8 @@ public class App {
                   config.enableDevLogging();
                 })
             .start(Integer.parseInt(System.getenv("SERVER_PORT")));
+
+    /** *************** Dealership Controller Routes *************** */
+    app.post("/enroll-dealership", dealershipController.enrollDealership);
   }
 }

@@ -1,6 +1,5 @@
 package Dealership;
 
-import Dealer.Dealer;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
@@ -14,11 +13,15 @@ public class Dealership {
   @BsonProperty(value = "name")
   private String name;
 
-  @BsonProperty(value = "admin")
-  private Dealer admin;
+  @BsonProperty(value = "admin_id")
+  private ObjectId adminId;
 
   @BsonProperty(value = "employees")
   private List<ObjectId> employees;
+
+  public Dealership() {
+    this.id = new ObjectId();
+  }
 
   /** **************** GETTERS ********************* */
   public ObjectId getId() {
@@ -29,8 +32,8 @@ public class Dealership {
     return this.name;
   }
 
-  public Dealer getAdmin() {
-    return this.admin;
+  public ObjectId getAdminId() {
+    return this.adminId;
   }
 
   public List<ObjectId> getEmployees() {
@@ -48,8 +51,8 @@ public class Dealership {
     return this;
   }
 
-  public Dealership setAdmin(Dealer admin) {
-    this.admin = admin;
+  public Dealership setAdminId(ObjectId adminId) {
+    this.adminId = adminId;
     return this;
   }
 
@@ -63,7 +66,7 @@ public class Dealership {
     final StringBuilder sb = new StringBuilder("Dealer {");
     sb.append("id=").append(this.id);
     sb.append(", name=").append(this.name);
-    sb.append(", admin=").append(this.admin);
+    sb.append(", admin=").append(this.adminId);
     sb.append(", employees=").append(this.employees);
     sb.append("}");
     return sb.toString();
@@ -76,12 +79,12 @@ public class Dealership {
     Dealership dealership = (Dealership) o;
     return Objects.equals(this.id, dealership.id)
         && Objects.equals(this.name, dealership.name)
-        && Objects.equals(this.admin, dealership.admin)
+        && Objects.equals(this.adminId, dealership.adminId)
         && Objects.equals(this.employees, dealership.employees);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(this.id, this.name, this.admin, this.employees);
+    return Objects.hash(this.id, this.name, this.adminId, this.employees);
   }
 }

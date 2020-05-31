@@ -41,6 +41,10 @@ public class Dealer {
     return this.dealershipId;
   }
 
+  public Dealer() {
+    this.id = new ObjectId();
+  }
+
   /** **************** SETTERS ********************* */
   public Dealer setId(ObjectId id) {
     this.id = id;
