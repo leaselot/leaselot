@@ -70,11 +70,11 @@ public class Dealer {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder("Dealer {");
-    sb.append("id=").append(id);
-    sb.append(", username=").append(username);
-    sb.append(", hashedpassword=").append(hashedPassword);
-    sb.append(", dealerType=").append(dealerType);
-    sb.append(", dealership_id=").append(dealershipId);
+    sb.append("id=").append(this.id);
+    sb.append(", username=").append(this.username);
+    sb.append(", hashedpassword=").append(this.hashedPassword);
+    sb.append(", dealerType=").append(this.dealerType);
+    sb.append(", dealership_id=").append(this.dealershipId);
     sb.append("}");
     return sb.toString();
   }
@@ -84,15 +84,16 @@ public class Dealer {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Dealer dealer = (Dealer) o;
-    return Objects.equals(id, dealer.id)
-        && Objects.equals(username, dealer.username)
-        && Objects.equals(hashedPassword, dealer.hashedPassword)
-        && Objects.equals(dealerType, dealer.dealerType)
-        && Objects.equals(dealershipId, dealer.dealershipId);
+    return Objects.equals(this.id, dealer.id)
+        && Objects.equals(this.username, dealer.username)
+        && Objects.equals(this.hashedPassword, dealer.hashedPassword)
+        && Objects.equals(this.dealerType, dealer.dealerType)
+        && Objects.equals(this.dealershipId, dealer.dealershipId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, hashedPassword, dealerType, dealershipId);
+    return Objects.hash(
+        this.id, this.username, this.hashedPassword, this.dealerType, this.dealershipId);
   }
 }
