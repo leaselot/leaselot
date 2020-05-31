@@ -1,6 +1,7 @@
 package Dealership;
 
 import Dealer.Dealer;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
 import java.util.List;
@@ -9,8 +10,14 @@ import java.util.Objects;
 public class Dealership {
 
   private ObjectId id;
+
+  @BsonProperty(value = "name")
   private String name;
+
+  @BsonProperty(value = "admin")
   private Dealer admin;
+
+  @BsonProperty(value = "employees")
   private List<ObjectId> employees;
 
   /** **************** GETTERS ********************* */
