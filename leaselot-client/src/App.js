@@ -1,25 +1,61 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './components/Dashboard';
+import History from './components/History';
+import Home from './components/Home';
+import Login from './components/Login';
+import Quote from './components/Quote';
+import Support from './components/Support';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() =>(
+            <Home />
+          )}
+        />
+        <Route
+          path="/login"
+          render={() => (
+            <Login />
+          )}
+        />
+        <Route
+          path="/dashboard"
+          render={() => (
+            <Dashboard />
+          )}
+        />
+        <Route
+          path="customer-quote"
+          render={() => (
+            <Quote />
+          )}
+        />
+        <Route
+          path="lease-history"
+          render={() => (
+            <History />
+          )}
+        />
+        <Route
+          path="support"
+          render={() => (
+            <Support />
+          )}
+        />
+      </Switch>
+    </Router>
   );
 }
 
