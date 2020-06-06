@@ -34,6 +34,14 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.28</version>
         </dependency>
+
+        <!-- MongoSessionDataStore -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-nosql</artifactId>
+            <version>9.4.29.v20200521</version>
+        </dependency>
+
     </dependencies>
 
 

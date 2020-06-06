@@ -1,3 +1,4 @@
+import Config.SessionConfig;
 import io.javalin.Javalin;
 
 public class App {
@@ -10,7 +11,24 @@ public class App {
                   config.enableCorsForAllOrigins();
                   // Enable extensive development logging for HTTP and websocket requests.
                   config.enableDevLogging();
+                  // Session handler
+                  config.sessionHandler(
+                      () -> {
+                        try {
+                          return SessionConfig.getSessionHandlerInstance();
+                        } catch (Exception e) {
+                          e.printStackTrace();
+                          return null;
+                        }
+                      });
                 })
             .start(Integer.parseInt(System.getenv("SERVER_PORT")));
+
+    app.get(
+        "/",
+        ctx -> {
+          ctx.sessionAttribute("first", "sessionItem");
+          ctx.result("DONE");
+        });
   }
 }
