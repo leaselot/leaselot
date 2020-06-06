@@ -30,5 +30,12 @@ public class App {
           ctx.sessionAttribute("first", "sessionItem");
           ctx.result("DONE");
         });
+
+    app.get(
+        "/sess",
+        ctx -> {
+          String s = ctx.sessionAttribute("first");
+          ctx.json(s);
+        });
   }
 }
