@@ -1,6 +1,5 @@
 package Config;
 
-import com.mongodb.MongoClientURI;
 import org.eclipse.jetty.nosql.mongodb.MongoSessionDataStoreFactory;
 import org.eclipse.jetty.server.session.DefaultSessionCache;
 import org.eclipse.jetty.server.session.SessionCache;
@@ -33,8 +32,7 @@ public class SessionConfig {
   private static MongoSessionDataStoreFactory mongoDataStoreFactory(
       String url, String dbName, String collectionName) {
     MongoSessionDataStoreFactory mongoSessionDataStoreFactory = new MongoSessionDataStoreFactory();
-    System.out.println("URI: " + new MongoClientURI(url).getURI());
-    mongoSessionDataStoreFactory.setConnectionString(new MongoClientURI(url).getURI());
+    mongoSessionDataStoreFactory.setConnectionString(url);
     mongoSessionDataStoreFactory.setDbName(dbName);
     mongoSessionDataStoreFactory.setCollectionName(collectionName);
     return mongoSessionDataStoreFactory;
