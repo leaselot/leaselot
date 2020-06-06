@@ -8,7 +8,7 @@ class Home extends React.Component {
 				<div id="center-box">
 					<img id="logo" src={require("../style/images/logo_leaselot.png")} />
 					<div id="button-box">
-						<div class="button" id="login-button">Log In</div>
+						<div class="button" id="login-button"><a class="button-link" href="login">Log In</a></div>
 						<div class="button" id="signup-button">Sign Up</div>
 					</div>
 				</div>
