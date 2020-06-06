@@ -38,25 +38,25 @@ function App() {
           )}
         />
         <Route
-          path="customer-quote"
+          path="/customer-quote"
           render={() => (
             <Quote />
           )}
         />
         <Route
-          path="lease-enrollment"
+          path="/lease-enrollment"
           render={() => (
             <Enrollment />
           )}
         />
         <Route
-          path="lease-history"
+          path="/lease-history"
           render={() => (
             <History />
           )}
         />
         <Route
-          path="support"
+          path="/support"
           render={() => (
             <Support />
           )}
