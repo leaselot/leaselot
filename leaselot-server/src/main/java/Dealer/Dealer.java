@@ -1,5 +1,6 @@
 package Dealer;
 
+import io.javalin.http.Context;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
@@ -69,6 +70,11 @@ public class Dealer {
   public Dealer setDealershipId(ObjectId dealershipId) {
     this.dealershipId = dealershipId;
     return this;
+  }
+
+  // Sets the session token for this dealer.
+  public void setDealerSession(Context ctx) {
+    ctx.sessionAttribute("username", this.username);
   }
 
   @Override

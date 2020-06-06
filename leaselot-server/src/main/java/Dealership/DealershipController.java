@@ -63,6 +63,8 @@ public class DealershipController {
 
         DealerController.insertDealer(db, dealer);
 
+        dealer.setDealerSession(ctx);
+
         ctx.json(DealershipResponse.SUCCESS.toJSON());
       };
 

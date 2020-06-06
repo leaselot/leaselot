@@ -49,12 +49,27 @@
             <version>20180813</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+
         <!-- Argon2 hashing -->
         <dependency>
             <groupId>de.mkammerer</groupId>
             <artifactId>argon2-jvm</artifactId>
             <version>2.6</version>
         </dependency>
+
+        <!-- MongoSessionDataStoreFactory in SessionConfig -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-nosql</artifactId>
+            <version>9.4.20.v20190813</version>
+        </dependency>
+
     </dependencies>
 
 
