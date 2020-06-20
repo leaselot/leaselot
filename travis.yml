@@ -6,9 +6,5 @@ before_install:
 dist: bionic
 install: true
 script:
+  - cd leaselot-server
   - mvn test -B
-cache:
-  directories:
-    - $HOME/.m2
-after_success:
-  - bash <(curl -s https://codecov.io/bash) -t uuid-repo-token
