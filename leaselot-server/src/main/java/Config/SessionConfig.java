@@ -24,7 +24,7 @@ public class SessionConfig {
 
     sessionHandler.setSessionCache(sessionCache);
     sessionHandler.setHttpOnly(true);
-    sessionHandler.setMaxInactiveInterval(60); // 30 minutes
+    sessionHandler.setMaxInactiveInterval(60);
 
     return sessionHandler;
   }
