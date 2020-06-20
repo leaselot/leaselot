@@ -3,7 +3,6 @@ jdk: oraclejdk13
 before_install:
   - sudo apt-get update
   - sudo apt-get install libc6
-
 dist: bionic
 install: true
 script:
