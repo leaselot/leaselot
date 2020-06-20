@@ -6,6 +6,7 @@ public enum DealershipResponse {
   HASH_FAILURE("HASH_FAILURE", "There was an error hashing the password."),
   DUPLICATE_DEALERSHIP("DUPLICATE_DEALERSHIP", "The provided dealership name already exists."),
   DUPLICATE_DEALER("DUPLICATE_DEALER", "The provided dealer username already exists."),
+  INVALID_PARAMETER("INVALID_PARAMETER", "Invalid parameter."),
   SUCCESS("SUCCESS", "Success.");
 
   private String status;
@@ -26,10 +27,10 @@ public enum DealershipResponse {
     return this;
   }
 
-  public String toJSON() {
+  public JSONObject toJSON() {
     JSONObject json = new JSONObject();
     json.put("status", this.status);
     json.put("message", this.message);
-    return json.toString();
+    return json;
   }
 }

@@ -19,8 +19,26 @@ public class Dealership {
   @BsonProperty(value = "employees")
   private List<ObjectId> employees;
 
-  public Dealership() {
-    this.id = new ObjectId();
+  public Dealership(String name, ObjectId adminId, List<ObjectId> employees)
+      throws DealershipValidationException {
+    validateDealershipInputs(name, adminId, employees);
+    this.name = name;
+    this.adminId = adminId;
+    this.employees = employees;
+  }
+
+  private static void validateDealershipInputs(
+      String name, ObjectId adminId, List<ObjectId> employees)
+      throws DealershipValidationException {
+
+    if (name == null) throw new DealershipValidationException("Dealership name is null.");
+    if (adminId == null) throw new DealershipValidationException("Admin ID is null.");
+    if (employees == null) throw new DealershipValidationException("Employee list is null.");
+
+    for (ObjectId employee : employees) {
+      if (employee == null)
+        throw new DealershipValidationException("Employee list contains null employee.");
+    }
   }
 
   /** **************** GETTERS ********************* */

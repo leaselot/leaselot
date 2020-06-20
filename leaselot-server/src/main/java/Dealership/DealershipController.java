@@ -52,11 +52,13 @@ public class DealershipController {
                 .setHashedPassword(passwordHash)
                 .setDealerType(DealerType.ADMIN);
 
-        Dealership dealership =
-            new Dealership()
-                .setAdminId(dealer.getId())
-                .setName(dealershipName)
-                .setEmployees(new ArrayList<ObjectId>());
+        Dealership dealership = null;
+        try {
+          dealership = new Dealership(dealershipName, dealer.getId(), new ArrayList<ObjectId>());
+        } catch (DealershipValidationException dve) {
+          ctx.json(DealershipResponse.INVALID_PARAMETER.setMessage(dve.getMessage()).toJSON());
+          return;
+        }
 
         MongoCollection<Dealership> dealerships = db.getCollection("dealerships", Dealership.class);
         dealerships.insertOne(dealership);
