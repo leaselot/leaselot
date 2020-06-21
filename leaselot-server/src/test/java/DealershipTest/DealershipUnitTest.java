@@ -35,7 +35,7 @@ public class DealershipUnitTest {
               Dealership dealership = new Dealership("name", null, new ArrayList<ObjectId>());
             });
 
-    String expectedMessage = "Admin ID is null.";
+    String expectedMessage = "Admin ID is null..";
     assertEquals(expectedMessage, dve.getMessage());
   }
 
