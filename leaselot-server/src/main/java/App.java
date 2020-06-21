@@ -15,7 +15,6 @@ public class App {
 
     /** ******************** CONTROLLERS *************************** */
     DealershipController dealershipController = new DealershipController(db);
-    int x = 5;
 
     Javalin app =
         Javalin.create(
