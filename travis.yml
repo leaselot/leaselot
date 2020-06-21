@@ -1,0 +1,4 @@
+language: java
+script:
+        - cd leaselot-server
+        - mvn test -B
