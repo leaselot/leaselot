@@ -1,7 +1,6 @@
 language: java
 script:
         - cd leaselot-server
-        - mvn install -DskipTests
-        - mvn verify
+        - mvn test -B
 notifications:
   slack: leaselot:t9zOZZN9IyolOGTSxpnSUTKH
